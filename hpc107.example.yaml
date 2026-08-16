@@ -1,0 +1,28 @@
+version: 1
+
+project:
+  entry: src/train.py
+  job_name: train
+
+environment:
+  manager: uv
+  conda_env: ""
+
+resources:
+  partition: Students
+  qos: qos_stu_default
+  cpus: 4
+  memory: 16G
+  gpus: 1
+  walltime: "2:00:00"
+
+paths:
+  script: scripts/train.sbatch
+  logs: logs
+  outputs: outputs
+  checkpoints: checkpoints
+  runs: .hpc107/runs
+
+datasets:
+  pan_remote: ""
+
